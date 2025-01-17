@@ -58,19 +58,19 @@ const RepoSearch = () => {
                                 required
                                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg flex-1 p-2.5"
                                 placeholder="Enter username here" />
-                            <button className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg">
+                            <button className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg flex-shrink-0">
                                 <Image src="/images/search.png" width={20} height={20} alt="search-icon"></Image>
                             </button>
                         </div>
                     </form>
                     {userInfo && (
-                        <div className='bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg grid grid-cols-3 w-full py-2.5 px-7'>
+                        <div className='bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg grid grid-cols-3 w-full py-2.5 md:px-7'>
                             <div className='col-span-1'>
                                 <a href={`https://github.com/${userInfo.login}`} target="_blank" rel="noopener noreferrer">
                                     <img src={userInfo.avatar_url} width={150} height={150} className='rounded-full' alt="User Avatar" />
                                 </a>
                             </div>
-                            <div className='col-span-2'>
+                            <div className='col-span-2 px-1'>
                                 <div>
                                     <a href={`https://github.com/${userInfo.login}`} target="_blank" rel="noopener noreferrer">
                                         <h1 className='text-2xl font-bold text-white'>{userInfo.name || userInfo.login}</h1>
@@ -79,7 +79,7 @@ const RepoSearch = () => {
                                     <p className='mt-3 text-white'>{userInfo.bio || 'No bio available'}</p>
                                     <div>Joined: {new Date(userInfo.created_at).toLocaleDateString()}</div>
                                 </div>
-                                <div className='flex justify-between text-white w-full mt-3'>
+                                <div className='md:flex md:justify-between grid grid-cols-1 text-white w-full mt-3'>
                                     <div>
                                         <p>Repositories:</p>
                                         <p>{repos.length}</p>
@@ -113,7 +113,7 @@ const RepoSearch = () => {
                                                 href={repo.html_url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="hover:text-primary-500"
+                                                className="hover:text-primary-500 break-all"
                                             >
                                                 {repo.name}
                                             </a>
